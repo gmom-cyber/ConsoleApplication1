@@ -12,13 +12,13 @@ int main()
     int n, nonnegativeX=0;
     cout << "Введите количество элементов первого массива: ";
     cin >> n;
-    int* massX = new int[n];
+    int* massX = new int[n];//Создаем динамические массвы
     float* massY = new float[n];
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)//Заполняем первый
     {
         massX[i] = rand() % 199 - 99;
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)//Решаем задачу 
     {
         if (massX[i] > 0)
         {
@@ -35,6 +35,7 @@ int main()
             massY[i] = 1 - cos(massX[i]);
         }
     }
+    //Красивый вывод данных
     cout << "Массив massX: ";
     for (int i = 0; i < n; i++)
     {
@@ -46,5 +47,7 @@ int main()
         cout << massY[i] << " ";
     }
     cout << endl << "Кол-во неотрицательных элементов в массиве massX: "<< nonnegativeX;
+    delete[] massX;//Освобождаем память 
+    delete[] massY;
 }
 
