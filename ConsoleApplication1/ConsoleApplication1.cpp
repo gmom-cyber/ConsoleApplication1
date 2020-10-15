@@ -10,11 +10,22 @@ int main()
     setlocale(LC_ALL, "Russian");
     
     int n, nonnegativeX=0;
-    cout << "Введите количество элементов первого массива: ";
+
+
+    cout << "Введите количество элементов первого массива(max 100): ";
     cin >> n;
-    int* massX = new int[n];//Создаем динамические массвы
-    float* massY = new float[n];
+
+    if (n > 100)
+    {
+        cout << "Сликом большое число *_*";
+        return 0;
+    }
+    int massX[100];
+    float massY[100];
+
+
     for (int i = 0; i < n; i++)//Заполняем первый
+
     {
         massX[i] = rand() % 199 - 99;
     }
@@ -47,7 +58,5 @@ int main()
         cout << massY[i] << " ";
     }
     cout << endl << "Кол-во неотрицательных элементов в массиве massX: "<< nonnegativeX;
-    delete[] massX;//Освобождаем память 
-    delete[] massY;
 }
 
